@@ -1,0 +1,5 @@
+a:3:{s:4:"time";i:1558848381;s:3:"ttl";i:3600;s:4:"data";s:255:"<marquee direction="left">
+    <?php foreach ($this->bulletin->running_text() as $running_text): ?>
+    <img src="<?php echo  images_base64('icon/esystem.png') ; ?>"> <?php echo  strip_tags($running_text->text) ; ?>
+    <?php endforeach; ?>
+</marquee>";}

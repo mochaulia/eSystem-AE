@@ -1,0 +1,20 @@
+a:3:{s:4:"time";i:1525846953;s:3:"ttl";i:3600;s:4:"data";s:1046:"<?php foreach ($products as $product): ?>
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="card">
+            <a class="img-card" data-toggle="modal" href="#modalRead" data-id="<?php echo  $product->id ; ?>">
+            <img src="<?php echo  $product->thumbnail ; ?>" />
+            </a>
+            <div class="card-content">
+                <h4 class="card-title">
+                    <a data-toggle="modal" href="#modalRead" data-id="<?php echo  $product->id ; ?>"> <?php echo  $product->name ; ?></a>
+                </h4>
+                <p class="" style="text-overflow:clip;">
+                    <?php echo  substr(strip_tags($product->description), 0, 40) ; ?>...
+                </p>
+                <button class="pull-right btn btn-default button-raised" data-toggle="modal" data-target="#modalRead" data-id="<?php echo  $product->id ; ?>">Read More
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>";}

@@ -1,0 +1,37 @@
+a:3:{s:4:"time";i:1525852888;s:3:"ttl";i:3600;s:4:"data";s:1925:"<div class="x_panel_heading">
+    <h3 class="x_title">News/Event Update</h3>
+</div>
+<div class="x_content">
+    <ul class="list-unstyled timeline">
+        <?php if (!$this->bulletin->news_update()): ?>
+            <li>No item found</li>
+        <?php else: ?>
+            <?php foreach ($this->bulletin->news_update() as $news_update): ?>
+                <li>
+                    <div class="blocks">
+                        <div class="tags">
+                            <a>
+                                <img class="img-circle" src="<?php echo  images_base64(user($news_update->id_creator)->avatar) ; ?>">
+                            </a>
+                        </div>
+                        <div class="block_content">
+                            <h2 class="title">
+                                <a>
+                                    <?php echo  $news_update->title ; ?>
+                                    <small>in<strong> <?php echo  $news_update->category ; ?></strong></small>
+                                </a>
+                            </h2>
+                            <div style="font-style: italic">
+                                <span><?php echo  relative_date($news_update->created_at) ; ?></span> by <strong><?php echo  user($news_update->id_creator)->first_name ; ?> <?php echo  user($news_update->id_creator)->last_name ; ?></strong>
+                            </div>
+                            <p class="excerpt">
+                                <?php echo  substr(strip_tags($news_update->text), 0, 50) ; ?>...
+                                <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news_update->id)) ; ?>"><strong>Read More</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </ul>
+</div>";}

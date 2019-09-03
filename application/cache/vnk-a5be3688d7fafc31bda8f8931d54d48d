@@ -1,0 +1,66 @@
+a:3:{s:4:"time";i:1525498645;s:3:"ttl";i:3600;s:4:"data";s:3979:"<?php $this->_opening_section('additional_stylesheet'); ?>
+    <link rel="stylesheet" href="<?php echo  css('nprogress/nprogress.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('pnotify/pnotify.custom.min.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('easyautocomplete/easy-autocomplete.min.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('easyautocomplete/easy-autocomplete.themes.min.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('mCustomScrollbar/jquery.mCustomScrollbar.min.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('gentelella.min.css') ; ?>">
+<?php $this->_closing_section(); ?><?php $this->_opening_section('additional_script'); ?>
+    <script src="<?php echo  js('nprogress/nprogress.js') ; ?>"></script>
+    <script src="<?php echo  js('tinymce/tinymce.min.js') ; ?>"></script>
+    <script src="<?php echo  js('pnotify/pnotify.custom.min.js') ; ?>"></script>
+    <script src="<?php echo  js('easyautocomplete/jquery.easy-autocomplete.min.js') ; ?>"></script>
+    <script src="<?php echo  js('parsley/parsley.min.js') ; ?>"></script>
+    <script src="<?php echo  js('mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') ; ?>"></script>
+    <script src="<?php echo  js('gentelella.js') ; ?>"></script>
+    <script src="<?php echo  js('app/messages/messagesHandler.js') ; ?>"></script>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('sidebar'); ?>
+    <?php echo $this->_include('_sidebar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('nav'); ?>
+    <?php echo $this->_include('_navbar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('content'); ?>
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><?php echo  $title ; ?></h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-sm-3 mail_list_column">
+                                    <button id="compose" 
+                                            class="btn btn-sm btn-success btn-block" 
+                                            type="button"
+                                            data-toggle="modal"
+                                            data-target="#modalCompose">
+                                            <i class="fa fa-pencil-square-o"></i> Compose
+                                    </button>
+                                    <div id="messagesLeft"></div>
+                                </div>
+                                <div class="col-sm-9 mail_view">
+                                    <div id="readRight">
+                                        <p class="text-center">Select a message.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCompose" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="modalDelete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <input id="ajaxGet" type="hidden" value="<?php echo  base_url('messages') ; ?>">
+<?php $this->_closing_section(); ?><?php echo $this->_include('base'); ?>";}

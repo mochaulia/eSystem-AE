@@ -1,0 +1,19 @@
+a:3:{s:4:"time";i:1565044997;s:3:"ttl";i:3600;s:4:"data";s:826:"<div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav main-carousel">
+    <?php if (!$sliders): ?>
+        <p>Item not found</p>
+    <?php else: ?>
+        <?php foreach ($sliders as $room): ?>
+            <article class="article thumb-article">
+                <div class="article-img">
+                    <img src="<?php echo  images($room->pic) ; ?>" alt="<?php echo  $room->name ; ?>">
+                </div>
+                <div class="article-body">
+                    </ul>
+                    <h2 class="article-title">
+                        <a data-toggle="modal" href="#modalRead" data-id="<?php echo  $room->id ; ?>"><?php echo  $room->name ; ?></a>
+                    </h2>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>";}

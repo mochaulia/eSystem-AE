@@ -1,0 +1,87 @@
+a:3:{s:4:"time";i:1532309342;s:3:"ttl";i:3600;s:4:"data";s:4516:"<?php $this->_opening_section('additional_stylesheet'); ?>
+    <link rel="stylesheet" href="<?php echo  css('nprogress/nprogress.css') ; ?>">
+    <!-- datatables -->
+    <link rel="stylesheet" href="<?php echo  css('datatables/dataTables.bootstrap.min.css') ; ?>">
+    <!-- pnotify -->    
+    <link rel="stylesheet" href="<?php echo  css('pnotify/pnotify.custom.min.css') ; ?>">
+    <!-- daterangepicker -->    
+    <link rel="stylesheet" href="<?php echo  css('daterangepicker/daterangepicker.css') ; ?>">
+    <!-- scroll -->
+    <link rel="stylesheet" href="<?php echo  css('mCustomScrollbar/jquery.mCustomScrollbar.min.css') ; ?>">
+    <!-- template -->
+    <link rel="stylesheet" href="<?php echo  css('gentelella.min.css') ; ?>">
+    <style type="text/css">
+        .modal { overflow: auto !important; }
+    </style>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('additional_script'); ?>
+    <!-- nprogress -->
+    <script src="<?php echo  js('nprogress/nprogress.js') ; ?>"></script>
+    <!-- datatables -->
+    <script src="<?php echo  js('datatables/dataTables.jquery.min.js') ; ?>"></script>
+    <script src="<?php echo  js('datatables/dataTables.bootstrap.min.js') ; ?>"></script>
+    <!-- pnotify -->
+    <script src="<?php echo  js('pnotify/pnotify.custom.min.js') ; ?>"></script>
+    <!-- daterangepicker -->
+    <script src="<?php echo  js('daterangepicker/daterangepicker-moment.min.js') ; ?>"></script>    
+    <script src="<?php echo  js('daterangepicker/daterangepicker.js') ; ?>"></script>
+    <!-- validator -->
+    <script src="<?php echo  js('parsley/parsley.min.js') ; ?>"></script>
+    <!-- tinymce -->
+    <script src="<?php echo  js('tinymce/tinymce.min.js') ; ?>"></script>
+    <!-- scroll -->
+    <script src="<?php echo  js('mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') ; ?>"></script>
+    <!-- template -->
+    <script src="<?php echo  js('gentelella.js') ; ?>"></script>
+    <!-- handler -->
+    <script src="<?php echo  js('app/news/newsHandler.js') ; ?>"></script>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('sidebar'); ?>
+    <?php echo $this->_include('_sidebar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('nav'); ?>
+    <?php echo $this->_include('_navbar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('content'); ?>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><?php echo  $title ; ?></h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCreate">
+                                <i class="fa fa-plus-circle"></i>
+                            </button>
+                            <button id="refreshTable" type="button" class="btn btn-default">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                            <div id="tableDiv"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCreate" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="modalEdit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="modalDelete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="modalOpenGallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <!-- /page content -->
+<?php $this->_closing_section(); ?><?php echo $this->_include('base'); ?>";}

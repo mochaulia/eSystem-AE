@@ -1,0 +1,19 @@
+a:3:{s:4:"time";i:1558848380;s:3:"ttl";i:3600;s:4:"data";s:819:"<?php foreach ($this->bulletin->{$ke}() as $heading => $category): ?>
+    <?php foreach ($this->bulletin->category($category) as $news): ?>
+        <?php if (!$this->bulletin->category($category)): ?>
+        <?php else: ?>
+            <div class="x_content">
+                <ul class="list-unstyled timeline_c timeline">
+                <li>
+                    <h2 class="title">
+                        <a><?php echo  $news->title ; ?></a>
+                    </h2>
+                    <div>
+                        <span><strong><i><?php echo  relative_date($news->created_at) ; ?></i></strong>  in <?php echo $news->category; ?></span>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endforeach; ?>";}

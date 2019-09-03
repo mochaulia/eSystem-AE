@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .modal-dialog {
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .modal-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    background: #2A3F54;
+    border: 0;
+  }
+  
+  .modal-title {
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .modal-body {
+    position: absolute;
+    top: 80px;
+    bottom: 60px;
+    width: 100%;
+    font-weight: 300;
+    overflow-y: auto !important;
+  }
+  
+  .modal-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 10px;
+    background: #f1f3f5;
+  }
+
+  .btn {
+    height: 40px;
+    border-radius: 0;
+  }
+
+  .btn:focus, .btn:active, .btn:active:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  
+  .btn-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -100px;
+    width: 200px;
+  }
+  
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active {
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #fff;
+    color: lighten(#484b5b, 20%);
+    color: #fff;
+    text-align: center;
+    background: #60cc69;
+    border: 1px solid #36a940;
+    border-bottom: 3px solid #36a940;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  .btn-primary:active {
+    border-bottom: 1px solid #36a940;
+  }
+  
+  .btn-default,
+  .btn-default:hover,
+  .btn-default:focus,
+  .btn-default:active {
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #fff;
+    text-align: center;
+    background: #1ABB9C;
+    border: 1px solid darken(#dcdfe4, 20%);
+    border-bottom: 3px solid darken(#dcdfe4, 20%);
+  }
+
+  .btn-default:active {
+    border-bottom: 1px solid darken(#dcdfe4, 20%);
+  }
+
+  .nav-tabs>li>a {
+      border-radius: 0px 0px 0px 0px !important;
+  }
+  .btn-secondary,
+  .btn-secondary:hover,
+  .btn-secondary:focus,
+  .btn-secondary:active {
+    color: #cc7272;
+    background: transparent;
+    border: 0;
+  }
+  
+/* end of modal */
+.martabak{
+  margin-top: 40px;
+}
+.th_p {
+    padding-right: 10px;
+    font-size:20px;
+}
+.panel {
+border:0px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+#wrapper {
+  width: 100%;
+  padding-right: 0px;
+    padding-left: 0px;
+}
+
+.img-responsive{
+  width:100% !important;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+.panel {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.panel:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container-fostrap {
+  display: table-cell;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+.card {
+  display: block; 
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
+    transition: box-shadow .25s; 
+}
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.img-card {
+  width: 100%;
+  height:200px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  display:block;
+    overflow: hidden;
+}
+.img-card img{
+  width: 100%;
+  height: 200px;
+  object-fit:cover; 
+  transition: all .25s ease;
+} 
+.card-content {
+  padding:15px;
+  padding-bottom:50px;
+  text-align:left;
+}
+.card-title {
+  margin-top:0px;
+  font-weight: 700;
+  font-size: 1.65em;
+}
+.card-title a {
+  color: #000;
+  text-decoration: none !important;
+}
+.card-read-more {
+  border-top: 1px solid #D4D4D4;
+}
+.card-read-more a {
+  text-decoration: none !important;
+  padding:10px;
+  font-weight:600;
+  text-transform: uppercase
+}

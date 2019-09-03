@@ -1,0 +1,33 @@
+a:3:{s:4:"time";i:1525853497;s:3:"ttl";i:3600;s:4:"data";s:1654:"<?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="<?php echo  css('bs.min.css') ; ?>">
+        <link rel="stylesheet" href="<?php echo  css('fa.min.css') ; ?>"><?php echo $this->_yield('additional_stylesheet'); ?>
+        <title>
+            <?php echo  site_name() ; ?> - <?php echo $title; ?>
+        </title>
+    </head>
+    <body class="nav-md footer_fixed"><?php echo $this->_yield('nav_unique'); ?><?php echo $this->_yield('content_unique'); ?><?php echo $this->_yield('footer_unique'); ?>
+        <?php if (!isset($no_foot)): ?>
+            <div class="container body">
+                <div class="main_container"><?php echo $this->_yield('sidebar'); ?><?php echo $this->_yield('nav'); ?><?php echo $this->_yield('content'); ?>
+                    <footer>
+                        <div class="pull-right">
+                            <?php echo  site_name() ; ?>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                </div>
+            </div>
+        <?php endif; ?>
+        <script src="<?php echo  js('jquery.min.js') ; ?>"></script>
+        <script src="<?php echo  js('bs.min.js') ; ?>"></script>
+        <script src="<?php echo  js('fastclick.js') ; ?>"></script>
+        <script src="<?php echo  js('esystemae.js') ; ?>"></script><?php echo $this->_yield('additional_script'); ?>
+    </body>
+</html>";}

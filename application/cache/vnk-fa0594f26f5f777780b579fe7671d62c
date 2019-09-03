@@ -1,0 +1,26 @@
+a:3:{s:4:"time";i:1525500205;s:3:"ttl";i:3600;s:4:"data";s:959:"<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title" id="modalCreateUserLabel">
+        Delete Message
+    </h4>
+</div>
+<div class="modal-body">
+    <?php if ($mine): ?>
+        Delete this message for?
+    <?php else: ?>
+        Are you sure to delete this message?
+    <?php endif; ?>
+</div>
+<div class="modal-footer">
+    <input id="messageID" type="hidden" value="<?php echo  $id ; ?>">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <?php if ($mine): ?>
+        <button type="button" class="deleteFor btn btn-danger" data-sel="all">All</button>
+        <button type="button" class="deleteFor btn btn-danger" data-sel="me">Just Me</button>
+    <?php else: ?>
+        <button id="toTrash" type="button" class="btn btn-danger">Yes</button>
+    <?php endif; ?>
+</div>
+";}

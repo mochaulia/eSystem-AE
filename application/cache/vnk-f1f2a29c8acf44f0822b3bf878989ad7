@@ -1,0 +1,56 @@
+a:3:{s:4:"time";i:1525864246;s:3:"ttl";i:3600;s:4:"data";s:3532:"<table id="menuTable" class="table table-striped productsTable">  
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Name</th>     
+            <th>Description</th>
+            <th>PIC</th>
+            <th>Years</th>
+            <th>Input at</th>
+            <th>Update at</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            $no = 1
+        ?>
+        <?php foreach ($results as $product): ?>
+            <tr>
+                <td><?php echo  $no ; ?></td>
+                <td><?php echo  $product->name ; ?></td>     
+                <td><?php echo  substr(strip_tags($product->description), 0, 100) ; ?>...</strong></td>
+                <td><?php echo  $product->pic_name ; ?></td>
+                <td><?php echo  $product->years ; ?></td>
+                <td><?php echo  relative_date($product->created_at)." ".date("H:i", $product->created_at) ; ?> <em>by<em> <strong><?php echo  user($product->id_creator)->first_name ; ?> <?php echo  user($product->id_creator)->last_name ; ?></strong></td>
+                <td><?php echo  ($product->updated_at) ? relative_date($product->updated_at)." ".date("H:i:s", $product->updated_at) : "-" ; ?> <em>by</em> <strong><?php echo  ($product->id_updater) ? user($product->id_updater)->first_name." ".user($product->id_updater)->last_name : "-" ; ?></strong></td>
+                <td>
+                    <?php if (is_admin() || $this->privileges_model->is(user()->id, 'read', $this->menus_model->select(array('alias' => $this->menus_name))->id) || $product->{$this->join_user} == user()->id): ?>
+                        <span data-toggle="modal" data-target="#modalRead" data-menu-id="<?php echo  $product->id ; ?>">
+                            <button type="button" class="btn btn-default btn-xs " data-toggle="tooltip" data-placement="top" title="Details">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                        </span>
+                    <?php endif; ?>
+                    <?php if (is_admin() || $this->privileges_model->is(user()->id, 'update', $this->menus_model->select(array('alias' => $this->menus_name))->id) || $product->{$this->join_user} == user()->id): ?>
+                        <span data-toggle="modal" data-target="#modalEdit" data-menu-id="<?php echo  $product->id ; ?>">
+                            <button type="button" class="btn btn-warning btn-xs " data-toggle="tooltip" data-placement="top" title="Edit">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </span>
+                    <?php endif; ?>
+                    <?php if (is_admin() || $this->privileges_model->is(user()->id, 'delete', $this->menus_model->select(array('alias' => $this->menus_name))->id) || $product->{$this->join_user} == user()->id): ?>                    
+                        <span data-toggle="modal" data-target="#modalDelete" data-menu-id="<?php echo  $product->id ; ?>">
+                            <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </span>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php
+                $no++
+            ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>";}

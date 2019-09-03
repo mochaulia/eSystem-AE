@@ -1,0 +1,43 @@
+a:3:{s:4:"time";i:1525828478;s:3:"ttl";i:3600;s:4:"data";s:2259:"<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title" id="modalCreateUserLabel">
+        My Gallery
+    </h4>
+</div>
+<div class="modal-body" style="height: 300px; overflow-y: auto;">
+    <a href="<?php echo  site_url('gallery/add') ; ?>" target="_blank" class="btn btn-success" style="margin-bottom:10px;">
+        <i class="fa fa-upload"></i> Upload
+    </a>
+    <button id="getGallery" class="btn btn-default" style="margin-bottom:10px;">
+        <i class="fa fa-refresh"></i>
+    </button>
+    <?php if (!$galleries): ?>
+        <p>Gallery not found</p>
+    <?php else: ?>
+        <div class="row">
+            <?php foreach ($galleries as $gallery): ?>
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="thumbnail thumbnail<?php echo  $gallery->id ; ?>">
+                        <span id="galleryId<?php echo  $gallery->id ; ?>" data-path="<?php echo  images($gallery->path) ; ?>">
+                        <div class="image view view-first">
+                            <img style="max-width: 100%; height: auto; display:block" src="<?php echo  images_base64($gallery->path) ; ?>" alt="<?php echo  $gallery->alt ; ?>">
+                        </div>
+                        <div class="caption">
+                            <button class="selectGallery btn btn-primary btn-sm" data-gallery-id="<?php echo  $gallery->id ; ?>" data-toggle="tooltip" data-placement="top" title="Select">
+                                <i class="fa fa-mouse-pointer"></i>
+                            </button>
+                            <button class="copyGalleryLink btn btn-default btn-sm" data-gallery-id="<?php echo  $gallery->id ; ?>" data-toggle="tooltip" data-placement="top" title="Copy Link">
+                                <i class="fa fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>";}

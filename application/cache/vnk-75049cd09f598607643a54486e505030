@@ -1,0 +1,26 @@
+a:3:{s:4:"time";i:1565045008;s:3:"ttl";i:3600;s:4:"data";s:1341:"<?php foreach ($this->news_model->categories_top() as $cat): ?>
+    <div class="col-md-4 col-sm-4">
+        <div class="section-title">
+            <h2 class="title"><?php echo  $cat->category ; ?></h2>
+        </div>
+        <?php foreach ($this->news_model->by_category($cat->category) as $news): ?>
+            <article class="article widget-article">
+                <div class="article-img">
+                    <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                        <img src="<?php echo  ($news->thumbnail) ? $news->thumbnail : images('app/gallery/noimg.jpg') ; ?>" alt="<?php echo  $news->title ; ?>">
+                    </a>
+                </div>
+                <div class="article-body">
+                    <h4 class="article-title">
+                        <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                            <?php echo  $news->title ; ?>
+                        </a>
+                    </h4>
+                    <ul class="article-meta">
+                        <li><i class="fa fa-clock-o"></i> <?php echo  relative_date($news->created_at) ; ?></li>
+                    </ul>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </div>
+<?php endforeach; ?>";}

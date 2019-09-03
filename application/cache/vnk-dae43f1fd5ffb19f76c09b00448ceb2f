@@ -1,0 +1,20 @@
+a:3:{s:4:"time";i:1525591914;s:3:"ttl";i:3600;s:4:"data";s:1100:"<?php if (!$inboxes): ?>
+    <p class="text-center">No messages found.</p>
+<?php else: ?>
+    <?php foreach ($inboxes as $msg): ?>
+        <a href="#" class="readMsg" data-id="<?php echo  $msg->id ; ?>">
+            <div class="mail_list">
+                <div class="left">
+                    <i class="<?php echo  (($msg->is_read == 0) && !$mine) ? 'fa fa-circle' : '' ; ?>"></i> 
+                    <i class="<?php echo  (($msg->is_read == 1) && $mine) ? 'fa fa-eye' : '' ; ?>"></i> 
+                </div>
+                <div class="right">
+                    <h3><?php echo  (!$mine) ? user($msg->id_from)->first_name . ' ' . user($msg->id_from)->last_name : 'Me' ; ?> <small><?php echo  relative_date(strtotime($msg->timestamp)) ; ?></small></h3>
+                    <span <?php echo  (($msg->is_read == 0) && !$mine) ? 'style="font-weight: bold"' : '' ; ?>>
+                        <p><?php echo  substr(strip_tags($msg->text), 0, 40) ; ?>...</p>
+                    </span>
+                </div>
+            </div>
+        </a>
+    <?php endforeach; ?>
+<?php endif; ?>";}

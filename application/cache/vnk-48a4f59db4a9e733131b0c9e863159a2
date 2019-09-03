@@ -1,0 +1,29 @@
+a:3:{s:4:"time";i:1565044999;s:3:"ttl";i:3600;s:4:"data";s:1904:"<?php $this->_opening_section('additional_stylesheet'); ?>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet"> 
+    <link rel="stylesheet" href="<?php echo  css('modalpinter/modalpinter.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('fullcalendar/fullcalendar.min.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('owl/owl.carousel.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('owl/owl.theme.default.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('magnews.css') ; ?>">
+<?php $this->_closing_section(); ?><?php $this->_opening_section('additional_script'); ?>
+    <script src="<?php echo  js('owl/owl.carousel.min.js') ; ?>"></script>
+    <script src="<?php echo  js('fullcalendar/fullcalendar.moment.min.js') ; ?>"></script>
+    <script src="<?php echo  js('fullcalendar/fullcalendar.min.js') ; ?>"></script>
+    <script src="<?php echo  js('magnews.js') ; ?>"></script>
+    <script src="<?php echo  js('app/features/roomsUsage.js') ; ?>"></script>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('nav_unique'); ?>
+    <?php echo $this->_include('_navbar_ftr'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('footer_unique'); ?>
+    <?php echo $this->_include('_footer_ftr'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('content_unique'); ?>
+    <div id="slidersDiv"></div>
+    <div class="container content-all">
+        <div id="mainCol" class="row" style="margin-bottom:15px;"></div>
+    </div>
+    <div id="modalRead" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+<?php $this->_closing_section(); ?><?php echo $this->_include('base'); ?>";}

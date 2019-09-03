@@ -1,0 +1,46 @@
+a:3:{s:4:"time";i:1565045008;s:3:"ttl";i:3600;s:4:"data";s:2088:"<div class="section-title">
+    <h2 class="title">Trending News</h2>
+</div>
+<?php if (!$main_news): ?>
+    <p>Item not found</p>
+<?php else: ?>
+    <?php foreach ($main_news as $news): ?>
+        <article class="article row-article">
+            <div class="article-img">
+                <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                    <img src="<?php echo  ($news->thumbnail) ? $news->thumbnail : images('app/gallery/noimg.jpg') ; ?>" alt="<?php echo  $news->title ; ?>">
+                </a>
+            </div>
+            <div class="article-body">
+                <ul class="article-info">
+                    <li class="article-category">
+                        <a href="<?php echo  site_url('features/news/category?v=' . $news->category) ; ?>">
+                            <?php echo  $news->category ; ?>
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="article-title">
+                    <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                        <?php echo  $news->title ; ?>
+                    </a>
+                </h3>
+                <ul class="article-meta">
+                    <li><i class="fa fa-clock-o"></i> <?php echo  relative_date($news->created_at) ; ?></li>
+                    <li>
+                        <i class="fa fa-user-circle-o"></i> 
+                        <?php echo  user($news->id_creator)->first_name ; ?> <?php echo  user($news->id_creator)->last_name ; ?>
+                    </li>
+                </ul>
+                <p><?php echo  substr(strip_tags($news->text), 0, 80) ; ?>...</p>
+            </div>
+        </article>
+    <?php endforeach; ?>
+<?php endif; ?>
+<!-- <div class="article-pagination">
+    <ul> 
+        <li class="active"><a href="#" class="active">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div> -->";}

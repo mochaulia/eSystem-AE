@@ -1,0 +1,32 @@
+a:3:{s:4:"time";i:1525853524;s:3:"ttl";i:3600;s:4:"data";s:1524:"<div class="col-md-12">
+    <div class="section-title">
+        <h2 class="title">Related Post</h2>
+    </div>
+    <div class="row">
+        <?php if (!$related): ?>
+            <p>Item not found</p>
+        <?php else: ?>
+            <?php foreach ($related as $news): ?>
+                <div class="col-md-3 col-sm-6">
+                    <article class="article">
+                        <div class="article-img">
+                            <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                <img src="<?php echo  ($news->thumbnail) ? $news->thumbnail : images('app/gallery/noimg.jpg') ; ?>" alt="<?php echo  $news->title ; ?>">
+                            </a>
+                        </div>
+                        <div class="article-body">
+                            <h4 class="article-title">
+                                <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                    <?php echo  $news->title ; ?>
+                                </a>
+                            </h4>
+                            <ul class="article-meta">
+                                <li><i class="fa fa-clock-o"></i> <?php echo  relative_date($news->created_at) ; ?></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>";}

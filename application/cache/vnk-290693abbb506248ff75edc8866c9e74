@@ -1,0 +1,39 @@
+a:3:{s:4:"time";i:1525853201;s:3:"ttl";i:3600;s:4:"data";s:1918:"<?php $this->_opening_section('additional_stylesheet'); ?>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet"> 
+    <link rel="stylesheet" href="<?php echo  css('owl/owl.carousel.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('owl/owl.theme.default.css') ; ?>">
+    <link rel="stylesheet" href="<?php echo  css('magnews.css') ; ?>">
+<?php $this->_closing_section(); ?><?php $this->_opening_section('additional_script'); ?>
+    <script type="text/javascript" src="<?php echo  js('owl/owl.carousel.min.js') ; ?>"></script>
+    <script type="text/javascript" src="<?php echo  js('magnews.js') ; ?>"></script>
+    <script type="text/javascript" src="<?php echo  js('app/features/news.js') ; ?>"></script>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('nav_unique'); ?>
+    <?php echo $this->_include('_navbar_ftr'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('footer_unique'); ?>
+    <?php echo $this->_include('_footer_ftr'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('content_unique'); ?>
+    <div id="sliderNews"></div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div id="trendingNews" class="col-md-8"></div>
+                <div id="latestNews" class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div id="catTopNews"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div id="catBottomNews"></div>
+            </div>
+        </div>
+    </div>
+    <div id="back-to-top"></div>
+<?php $this->_closing_section(); ?><?php echo $this->_include('base'); ?>";}

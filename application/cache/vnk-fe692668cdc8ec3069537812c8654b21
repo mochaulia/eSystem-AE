@@ -1,0 +1,39 @@
+a:3:{s:4:"time";i:1525828499;s:3:"ttl";i:3600;s:4:"data";s:2910:"<div class="row">
+    <?php if (!$galleries): ?>
+        <p>Gallery not found</p>
+    <?php else: ?>
+        <?php foreach ($galleries as $gallery): ?>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="thumbnail">
+                    <div class="image view view-first">
+                        <img style="max-width: 100%; height: auto; display:block" src="<?php echo  images_base64($gallery->path) ; ?>" alt="<?php echo  $gallery->alt ; ?>">
+                        <div class="mask">
+                            <p><?php echo (user($gallery->uploaded_by)->username != user()->username) ? "(".user($gallery->uploaded_by)->username.")" : "" ; ?> <?php echo  (user($gallery->uploaded_by)->first_name != user()->first_name) ? "(".user($gallery->uploaded_by)->first_name.")" : "" ; ?> (<?php echo  relative_date($gallery->uploaded_at) ; ?>)</p>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <button class="btn btn-primary btn-xs" onclick="copyToClipboard('#galleryId<?php echo  $gallery->id ; ?>')" data-toggle="tooltip" data-placement="top" title="Copy Link">
+                            <span id="galleryId<?php echo  $gallery->id ; ?>" data-src="<?php echo  images($gallery->path) ; ?>"></span>
+                            <i class="fa fa-copy"></i>
+                        </button>
+                        <?php if (is_admin() || $this->privileges_model->is(user()->id, 'update', $this->menus_model->select(array('alias' => 'gallery'))->id) || $gallery->uploaded_by == user()->id): ?>
+                            <span data-toggle="modal" data-target="#modalEditGallery" data-gallery-id="<?php echo  $gallery->id ; ?>">
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (is_admin() || $this->privileges_model->is(user()->id, 'delete', $this->menus_model->select(array('alias' => 'gallery'))->id) || $gallery->uploaded_by == user()->id): ?>
+                            <span data-toggle="modal" data-target="#modalDeleteGallery" data-gallery-id="<?php echo  $gallery->id ; ?>">
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </span>
+                        <?php endif; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>";}

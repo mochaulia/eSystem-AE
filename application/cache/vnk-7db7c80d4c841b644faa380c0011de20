@@ -1,0 +1,68 @@
+a:3:{s:4:"time";i:1532309335;s:3:"ttl";i:3600;s:4:"data";s:4040:"<table class="table table-striped usersTable">  
+    <thead>
+        <tr>
+            <th><?php echo  lang('index_id_th') ; ?></th>
+            <th><?php echo  lang('index_ava_th') ; ?></th>
+            <th><?php echo  lang('index_email_th') ; ?></th>
+            <th><?php echo  lang('index_uname_th') ; ?></th>
+            <th><?php echo  lang('index_full_name_th') ; ?></th>
+            <?php if (is_admin()): ?>
+                <th><?php echo  lang('index_role_th') ; ?></th>
+                <th><?php echo  lang('index_lastlog_th') ; ?></th>
+                <th><?php echo  lang('index_status_th') ; ?></th>
+                <th><?php echo  lang('index_action_th') ; ?></th>
+            <?php else: ?>
+                <th><?php echo  lang('index_major_th') ; ?></th>
+                <th><?php echo  lang('index_phone_th') ; ?></th>
+            <?php endif; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach (users() as $user): ?>
+            <?php if (!is_admin() && $user->username == 'admin'): ?>
+                <?php continue; ?>
+            <?php endif; ?>
+            <tr <?php echo  ($user->gender == 'F') ? 'style="font-weight:bold"' : '' ; ?>>
+                <td><?php echo  $user->id ; ?></td>
+                <td><img src="<?php echo  images_base64($user->avatar) ; ?>" style="width: 29px; height: 29px; border-radius: 50%;"></td>
+                <td><?php echo  $user->email ; ?></td>
+                <td><?php echo  $user->username ; ?></td>
+                <td><?php echo  $user->first_name . ' ' . $user->last_name ; ?></td>
+                <?php if (is_admin()): ?>
+                    <td><?php echo  users_group_one($user->id)->description ; ?></td>
+                    <td><?php echo  ($user->last_login) ? relative_date($user->last_login)." ".date("H:i:s", $user->last_login) : "-" ; ?></td>
+                    <td>
+                        <div class="checkbox">
+                            <input type="checkbox" class="changeStatus"
+                                   data-user-id="<?php echo  $user->id ; ?>" 
+                                   <?php echo  ($user->active) ? 'checked' : ''; ?>
+                                   <?php echo  ($user->username == 'admin') ? 'disabled' : '' ; ?>>
+                        </div>
+                    </td>
+                    <td>
+                        <span data-toggle="modal" data-target=".modalEditUser" data-user-id="<?php echo  $user->id ; ?>">
+                            <button type="button" class="btn btn-primary btn-xs " data-toggle="tooltip" data-placement="top" title="Edit">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </span>
+                        <span data-toggle="modal" data-target=".modalPrivileges" data-user-id="<?php echo  $user->id ; ?>">                
+                            <button type="button" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Privileges">
+                                <i class="fa fa-braille"></i>
+                            </button>
+                        </span>
+                        <?php if ($user->username !== 'admin'): ?>
+                            <span data-toggle="modal" data-target=".modalDeleteUser" data-user-id="<?php echo  $user->id ; ?>">
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </span>
+                        <?php endif; ?>
+                    </td>
+                <?php else: ?>
+                    <td><?php echo  $this->majors_model->select(array('id' => $user->id_major))->name ; ?></td>
+                    <td><?php echo  $user->phone ; ?></td>
+                <?php endif; ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>";}

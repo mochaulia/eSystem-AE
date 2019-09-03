@@ -1,0 +1,48 @@
+a:3:{s:4:"time";i:1532309344;s:3:"ttl";i:3600;s:4:"data";s:2889:"<table id="menuTable" class="table table-striped">  
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Title</th>     
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            $no = 1
+        ?>
+        <?php foreach ($results as $news): ?>
+            <tr>
+                <td><?php echo  $no ; ?></td>
+                <td><?php echo  $news->title ; ?></td>     
+                <td><?php echo  relative_date($news->created_at)." ".date("H:i", $news->created_at) ; ?> <em>by<em> <strong><?php echo  user($news->id_creator)->first_name ; ?> <?php echo  user($news->id_creator)->last_name ; ?></strong></td>
+                <td><?php echo  ($news->updated_at) ? relative_date($news->updated_at)." ".date("H:i:s", $news->updated_at) : "-" ; ?> <em>by</em> <strong><?php echo  ($news->id_updater) ? user($news->id_updater)->first_name." ".user($news->id_updater)->last_name : "-" ; ?></strong></td>
+                <td><?php echo  $news->category ; ?></td>
+                <td>
+                    <a href="<?php echo  site_url('features/news/read?v=') . url_encode($news->id) ; ?>" target="_blank" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Open">
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                    <?php if (is_admin() || $this->privileges_model->is(user()->id, 'update', $this->menus_model->select(array('alias' => $this->menus_name))->id) || $news->{$this->join_user} == user()->id): ?>
+                        <span data-toggle="modal" data-target="#modalEdit" data-menu-id="<?php echo  $news->id ; ?>">
+                            <button type="button" class="btn btn-warning btn-xs " data-toggle="tooltip" data-placement="top" title="Edit">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </span>
+                    <?php endif; ?>
+                    <?php if (is_admin() || $this->privileges_model->is(user()->id, 'delete', $this->menus_model->select(array('alias' => $this->menus_name))->id) || $news->{$this->join_user} == user()->id): ?>                    
+                        <span data-toggle="modal" data-target="#modalDelete" data-menu-id="<?php echo  $news->id ; ?>">
+                            <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </span>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php
+                $no++
+            ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>";}

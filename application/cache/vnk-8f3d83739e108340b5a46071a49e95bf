@@ -1,0 +1,69 @@
+a:3:{s:4:"time";i:1525853202;s:3:"ttl";i:3600;s:4:"data";s:3945:"<div class="col-md-12">
+    <div class="section-title">
+        <h2 class="title">Category</h2>
+        <ul class="tab-nav pull-right">
+            <?php foreach ($this->news_model->categories_bottom() as $cat): ?>
+                <li class="<?php echo  ($cat->category == 'beasiswa') ? 'active' : '' ; ?>">
+                    <a data-toggle="tab" href="#tab<?php echo  $cat->category ; ?>"><?php echo  $cat->category ; ?></a>
+                </li>
+            <?php endforeach; ?>
+            <li>
+                <a data-toggle="tab" href="#tablainnya">Lainnya</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <?php foreach ($this->news_model->categories_bottom() as $cat): ?>
+            <div id="tab<?php echo  $cat->category ; ?>" class="tab-pane fade in <?php echo  ($cat->category == 'beasiswa') ? 'active' : '' ; ?>">
+                <div class="row">
+                    <?php foreach ($this->news_model->by_category($cat->category) as $news): ?>
+                    <div class="col-md-3 col-sm-6">
+                            <article class="article">
+                                <div class="article-img">
+                                    <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                        <img src="<?php echo  ($news->thumbnail) ? $news->thumbnail : images('app/gallery/noimg.jpg') ; ?>" alt="<?php echo  $news->title ; ?>">
+                                    </a>
+                                </div>
+                                <div class="article-body">
+                                    <h4 class="article-title">
+                                        <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                            <?php echo  $news->title ; ?>
+                                        </a>
+                                    </h4>
+                                    <ul class="article-meta">
+                                        <li><i class="fa fa-clock-o"></i> <?php echo  relative_date($news->created_at) ; ?></li>
+                                    </ul>
+                                </div>
+                            </article>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <div id="tablainnya" class="tab-pane fade in">
+            <div class="row">
+                <?php foreach ($this->news_model->by_category('lainnya') as $news): ?>
+                    <div class="col-md-3 col-sm-6">
+                        <article class="article">
+                            <div class="article-img">
+                                <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                    <img src="<?php echo  ($news->thumbnail) ? $news->thumbnail : images('app/gallery/noimg.jpg') ; ?>" alt="<?php echo  $news->title ; ?>">
+                                </a>
+                            </div>
+                            <div class="article-body">
+                                <h4 class="article-title">
+                                    <a href="<?php echo  site_url('features/news/read?v=' . url_encode($news->id)) ; ?>">
+                                        <?php echo  $news->title ; ?>
+                                    </a>
+                                </h4>
+                                <ul class="article-meta">
+                                    <li><i class="fa fa-clock-o"></i> <?php echo  relative_date($news->created_at) ; ?></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>";}

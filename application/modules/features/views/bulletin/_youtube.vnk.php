@@ -1,0 +1,1 @@
+<iframe class="embed-responsive-item" src="//{{ $this->bulletin->youtube()->url }}"></iframe>

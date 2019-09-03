@@ -1,0 +1,107 @@
+a:3:{s:4:"time";i:1532319319;s:3:"ttl";i:3600;s:4:"data";s:5726:"<?php $this->_opening_section('additional_stylesheet'); ?>
+    <link rel="stylesheet" href="<?php echo  css('nprogress/nprogress.css') ; ?>">
+    <!-- pnotify -->    
+    <link rel="stylesheet" href="<?php echo  css('pnotify/pnotify.custom.min.css') ; ?>">
+    <!-- fullcalendar -->
+    <link rel="stylesheet" href="<?php echo  css('fullcalendar/fullcalendar.min.css') ; ?>">
+    <!-- scroll -->
+    <link rel="stylesheet" href="<?php echo  css('mCustomScrollbar/jquery.mCustomScrollbar.min.css') ; ?>">
+    <!-- template -->
+    <link rel="stylesheet" href="<?php echo  css('gentelella.min.css') ; ?>">
+<?php $this->_closing_section(); ?><?php $this->_opening_section('additional_script'); ?>
+    <!-- nprogress -->
+    <script src="<?php echo  js('nprogress/nprogress.js') ; ?>"></script>
+    <!-- pnotify -->
+    <script src="<?php echo  js('pnotify/pnotify.custom.min.js') ; ?>"></script>
+    <!-- validator -->
+    <script src="<?php echo  js('parsley/parsley.min.js') ; ?>"></script>
+    <!-- fullcalendar -->
+    <script src="<?php echo  js('fullcalendar/fullcalendar.moment.min.js') ; ?>"></script>
+    <script src="<?php echo  js('fullcalendar/fullcalendar.min.js') ; ?>"></script>
+    <!-- scroll -->
+    <script src="<?php echo  js('mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') ; ?>"></script>
+    <!-- template -->
+    <script src="<?php echo  js('gentelella.js') ; ?>"></script>
+    <!-- template -->
+    <script src="<?php echo  js('app/rooms/rentingHandler.js') ; ?>"></script>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('sidebar'); ?>
+    <?php echo $this->_include('_sidebar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('nav'); ?>
+    <?php echo $this->_include('_navbar'); ?>
+<?php $this->_closing_section(); ?><?php $this->_opening_section('content'); ?>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><?php echo  $title ; ?></h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <button id="refreshTable" type="button" class="btn btn-default">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                            <div style="margin-bottom:10px;">
+                                <select id="myShow" class="form-control">
+                                    <option value="">
+                                        - All -
+                                    </option>
+                                    <option value="my">
+                                        Only My Booking
+                                    </option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom:10px;">
+                                <select id="statusShow" class="form-control">
+                                    <option value="">
+                                        - All Status -
+                                    </option>
+                                    <option value="pending" <?php echo  (is_admin() ? 'selected' : '') ; ?>>
+                                        Pending
+                                    </option>
+                                    <option value="noaction">
+                                        Read by Admin
+                                    </option>
+                                    <option value="approved">
+                                        Approved
+                                    </option>
+                                    <option value="denied">
+                                        Denied
+                                    </option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom:10px;">
+                                <select id="roomsShow" class="form-control">
+                                    <option value="">
+                                        - All Rooms -
+                                    </option>
+                                    <?php foreach ($this->rooms_model->select() as $room): ?>
+                                        <option value="<?php echo  $room->id ; ?>">
+                                            <?php echo  $room->name ; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div id="roomRenting"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCreate" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div id="dateTempCreate"></div>
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="modalRead" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div id="uniqueTempUpdate"></div>
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <!-- /page content -->
+<?php $this->_closing_section(); ?><?php echo $this->_include('base'); ?>";}
